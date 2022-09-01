@@ -11,8 +11,15 @@
  */
 class Solution {
 public:
-        int goodNodes(TreeNode* r, int ma = -10000) {
-        return r ? goodNodes(r->left, max(ma, r->val)) + goodNodes(r->right, max(ma, r->val)) + (r->val >= ma) : 0;
+    int goodNodes(TreeNode* root,int maz=INT_MIN) {
+        if(root==NULL)
+        return 0;
+        int count =0;
+        if(maz<=root->val)
+        {
+            maz = root->val;
+            count+=1;
+        }   
+        return count+=goodNodes(root->right,maz)+goodNodes(root->left,maz);
     }
-
 };
