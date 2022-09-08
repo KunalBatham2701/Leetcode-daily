@@ -11,7 +11,7 @@ public:
             }
             res+=s.substr(l+1,r-l)+" ";
         }
-        if(res.back()==' ') res.pop_back();
+        res.pop_back();
         return res;
     }
 };
